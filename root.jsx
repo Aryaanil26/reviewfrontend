@@ -13,14 +13,12 @@ function Root(props) {
                         <Link to={'/'}>Home</Link>
                     </li>
                     <li>
-                        <Link to={'/authors'}>Authors</Link>
+                        <Link to={'/Reviews'}>Authors</Link>
                     </li>
                     <li>
-                        <Link to={'/books'}>Books</Link>
+                        <Link to={'/movies'}>movies</Link>
                    </li>
-                    <li>
-                        <Link to={'/contact'}>Contact</Link>
-                    </li>
+                 
                 </ul>
             </nav>
             </div>
