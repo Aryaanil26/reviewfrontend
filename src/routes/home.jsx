@@ -1,27 +1,27 @@
 import React from 'react';
-import BookCard from '../components/BookCard';
+import MovieCard from '../components/MovieCard';
 import { useLoaderData } from 'react-router-dom';
 
 
 
 export async function loader() {
-    const response = await fetch('http://localhost:3000/books')
-    const books = await response.json()
-    return {books}
+    const response = await fetch('http://localhost:3000/movies')
+    const movies = await response.json()
+    return {movies}
   }
 
 function Home(props) {
-    const {books} = useLoaderData()
+    const {movies} = useLoaderData()
      return (
         <main>
             <section className='container mx-auto py-16'>
            <h2 className ='font-bold text-lg'>New arravial</h2>
            <div className='mt-8 grid grid-cols-4 gap-4'>
             {
-                books.map(book => {
-                    return <BookCard
-                    key={book._Id}
-                    book = {book}/>
+               movies.map(movie => {
+                    return <MovieCardCard
+                    key={movie._Id}
+                    movie = {movie}/>
                  })
              }
            </div>

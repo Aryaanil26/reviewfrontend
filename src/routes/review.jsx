@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Books(props){
+function Reviews(props){
     return(
         <main>
-            Books
+            Reviews
         </main>
     );
 }
 
-export default Books;
+export default Reviews;

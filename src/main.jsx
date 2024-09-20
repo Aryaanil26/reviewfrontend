@@ -9,12 +9,14 @@ import Root from './routes/root';
 import ErrorPage from './error-page';
 import Home, {loader as homeLoader} from './routes/home';
 //import Contact from './routes/contact';
-import Books from './routes/books';
+import Books from './routes/movies';
 //import About from './routes/about';
-import Book, {loader as bookLoader} from './routes/book';
-import Author,{loader as authorLoader} from './routes/authors';
+import Book, {loader as bookLoader} from './routes/movie';
+import Author,{loader as authorLoader} from './routes/reviews';
 import Signup from './routes/signup';
 import Login from './routes/login';
+import { Provider } from 'react-redux';
+import store from './app/store';
 
 
 
@@ -31,22 +33,22 @@ const router = createBrowserRouter([
         loader: homeLoader
       },
          {
-          path:'/authors',
-          element: <Author/>,
-       loader: authorLoader 
+          path:'/reviews',
+          element: <Review/>,
+       loader: reviewLoader 
          },
       {
-        path:'/books',
-        element: <Books/>,
+        path:'/movies',
+        element: <Movies/>,
       },
          {
-           path:'/authors/:author._id',
-         element: <Author/>
+           path:'/reviews/:review._id',
+         element: <Review/>
        },
       {
-        path:'/books/:book._Id',
-        element:<Book/>,
-      loader:bookLoader
+        path:'/movies/:movie._Id',
+        element:<Movie/>,
+      loader:MovieLoader
       },
       {
         path:'/signup',
@@ -63,6 +65,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+    </Provider>
+  </React.StrictMode>
 )
